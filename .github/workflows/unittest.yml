@@ -20,18 +20,18 @@ jobs:
         with:
           run: ant -noinput -buildfile build.xml test
       - uses: sarisia/actions-status-discord@v1
-        if: failure()
+        if: success()
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_DEVELOPMENT }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_NEW }}
         with:
           nodetail: true
-          title: "Unittest failed"
+          title: "Unittest success"
           description: "https://stendhalgame.org/development/cireport.html"
       - uses: sarisia/actions-status-discord@v1
-        if: failure()
+        if: success()
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_DEVLOG }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_NEW }}
         with:
           nodetail: true
-          title: "Unittest failed"
+          title: "Unittest success"
           description: "https://stendhalgame.org/development/cireport.html"
